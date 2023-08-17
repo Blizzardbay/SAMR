@@ -41,7 +41,7 @@ options
 -sing			special treatment of pitch
 -debug			print additional debug messages
 
-VOWELS                       	       VOICED CONSONANTS	
+    VOWELS                             VOICED CONSONANTS	
 IY           f(ee)t                    R        red		
 IH           p(i)n                     L        allow		
 EH           beg                       W        away		
@@ -55,7 +55,7 @@ UX           l(oo)t                    D        dog
 ER           bird                      G        again		
 AX           gall(o)n                  J        judge		
 IX           dig(i)t                   Z        zoo		
-ZH           plea(s)ure	
+                                       ZH       plea(s)ure	
    DIPHTHONGS                          V        seven		
 EY           m(a)de                    DH       (th)en		
 AY           h(igh)						
@@ -63,8 +63,8 @@ OY           boy
 AW           h(ow)                     UNVOICED CONSONANTS	
 OW           slow                      S         Sam		
 UW           crew                      Sh        fish		
-									   F         fish		
-									   TH        thin		
+                                       F         fish		
+                                       TH        thin		
  SPECIAL PHONEMES                      P         poke		
 UL           sett(le) (=AXL)           T         talk		
 UM           astron(omy) (=AXM)        K         cake		
@@ -75,14 +75,14 @@ Q            kitt-en (glottal stop)    /H        a(h)ead
 The Orginal Git License
 =======
 
-The software is a reverse-engineered version of a commercial software published more than 30 years ago.
+The software is a reverse-engineered version of commercial software published more than 30 years ago.
 The current copyright holder is SoftVoice, Inc. (www.text2speech.com)
 
 Any attempt to contact the company failed. The website was last updated in the year 2009.
-The status of the original software can therefore best described as Abandonware 
+The status of the original software can therefore best be described as Abandonware 
 (http://en.wikipedia.org/wiki/Abandonware)
 
-As long this is the case I cannot put my code under any specific open source software license
+As long this is the case I cannot put my code under any specific open-source software license
 Use it at your own risk.
 
 
@@ -90,7 +90,7 @@ Use it at your own risk.
 Contact The Orginal Git Creator
 =======
 
-If you have questions don' t hesitate to ask me.
+If you have questions don't hesitate to ask me.
 If you discovered some new knowledge about the code please mail me.
 
 Sebastian Macke
