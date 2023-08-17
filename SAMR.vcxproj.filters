@@ -311,7 +311,6 @@
     <Text Include="dependencies\SDL2-2.28.2\WhatsNew.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dependencies\SDL2-2.28.2\lib\x64\SDL2.dll" />
     <None Include="dependencies\SDL2-2.28.2\docs\CONTRIBUTING.md" />
     <None Include="dependencies\SDL2-2.28.2\docs\doxyfile" />
     <None Include="dependencies\SDL2-2.28.2\docs\README.md" />
@@ -347,9 +346,11 @@
     <None Include="dependencies\SDL2-2.28.2\docs\README-windows.md" />
     <None Include="dependencies\SDL2-2.28.2\docs\README-winrt.md" />
     <None Include="dependencies\SDL2-2.28.2\docs\release_checklist.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="dependencies\SDL2-2.28.2\lib\x64\SDL2.lib" />
-    <Library Include="dependencies\SDL2-2.28.2\lib\x64\SDL2main.lib" />
+    <None Include="test_singing.sam" />
+    <None Include="test.sam" />
+    <None Include="sing.sam" />
+    <None Include=".gitignore" />
+    <None Include=".gitattributes" />
+    <None Include="README.md" />
   </ItemGroup>
 </Project>
