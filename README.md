@@ -8,6 +8,7 @@ About
 This is an expansion of the original SAM GitHub project done by Sebastian Macke. 
 This is a C++ remake of the original code in order to improve the functionality of the original project.
 The extension adds full file reading of SAM commands and non-argument-based input for the SAM application.
+Use at your own risk.
 
 Original Git
 ====
@@ -40,7 +41,18 @@ Example 3:
 ```
 -sing -pitch 60 I am sam
 ```
+Example 4:
+```
+-sing -pitch 60 I am sam
+-sing -pitch 255 I am sam
+-sing -pitch 200 I am sam
+-sing -pitch 1 I am sam
+```
 Since the project has the option to output `.wav` files, there is no need for the `-wav` command.
+Note word lines should not exceed 150ish characters to due API limitations.
+Just redo the options and put more text on the next line.
+
+There is a known limitation for the length of the output. Try to keep outputs to less than 1 minute: 30 seconds.
 
 In case you don't read through the code to find out how to execute the commands, here is the original print message
 for using the code.
@@ -85,7 +97,6 @@ UM           astron(omy) (=AXM)        K         cake
 UN           functi(on) (=AXN)         CH        speech		
 Q            kitt-en (glottal stop)    /H        a(h)ead		
 ```
-
 The Orginal Git License
 =======
 
