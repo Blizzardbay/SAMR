@@ -5,38 +5,43 @@ Software Automatic Mouth Remastered
 
 About
 ====
-This is expansion of the original SAM github project done by Sebastian Macke. 
-This is a C++ remake of the original code inorder to improve the functionalliy of the orginal project.
-The extention adds full file reading of SAM commands and non-argument based input for the SAM application.
+This is an expansion of the original SAM GitHub project done by Sebastian Macke. 
+This is a C++ remake of the original code in order to improve the functionality of the original project.
+The extension adds full file reading of SAM commands and non-argument-based input for the SAM application.
+
+Original Git
+====
+(https://github.com/vidarh/SAM)
 
 Usage
 ====
 Run the provided debug SAMR.exe. 
+
 Select the .sam file to use.
-Follow instructions given by the console.
 
-To make commands and .sam files all you have todo is follow the orginal project's syntax (shown below)
-()
-for SAM commands. Since the project has an option to output .wav files, there is no need for the -wav command.
+Follow the instructions given by the console.
 
-In case you don't read through the code to find out how to execute the commands, here is the orginal print message
+To make commands and .sam files all you have to do is follow the original project's syntax (shown below)
+
+(https://github.com/vidarh/SAM)
+
+for SAM commands. Since the project has the option to output .wav files, there is no need for the -wav command.
+
+In case you don't read through the code to find out how to execute the commands, here is the original print message
 for using the code.
-
+```
 usage: sam [options] Word1 Word2 ....
-		usage: sam [options] Word1 Word2 ....
 options
-	-phonetic 		enters phonetic mode. (see below)
-	-pitch number		set pitch value (default=64)
-	-speed number		set speed value (default=72)
-	-throat number		set throat value (default=128)
-	-mouth number		set mouth value (default=128)
-	-wav filename		output to wav instead of libsdl
-	-sing			special treatment of pitch
-	-debug			print additional debug messages
+-phonetic		enters phonetic mode. (see below)
+-pitch number		set pitch value (default=64)
+-speed number		set speed value (default=72)
+-throat number		set throat value (default=128)
+-mouth number		set mouth value (default=128)
+-wav filename		output to wav instead of libsdl
+-sing			special treatment of pitch
+-debug			print additional debug messages
 
-
-
-	 VOWELS                            VOICED CONSONANTS	
+VOWELS                       	       VOICED CONSONANTS	
 IY           f(ee)t                    R        red		
 IH           p(i)n                     L        allow		
 EH           beg                       W        away		
@@ -65,7 +70,7 @@ UL           sett(le) (=AXL)           T         talk
 UM           astron(omy) (=AXM)        K         cake		
 UN           functi(on) (=AXN)         CH        speech		
 Q            kitt-en (glottal stop)    /H        a(h)ead		
-
+```
 
 The Orginal Git License
 =======
