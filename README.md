@@ -15,31 +15,45 @@ Original Git
 
 Usage
 ====
-Run the provided debug SAMR.exe. 
+Run the provided debug `SAMR.exe`. 
 
-Select the .sam file to use.
+Select the `.sam` file to use.
 
 Follow the instructions given by the console.
 
-To make commands and .sam files all you have to do is follow the original project's syntax (shown below)
+To make commands and `.sam` files all you have to do is follow the original project's syntax (shown below)
 
 (https://github.com/vidarh/SAM)
 
-for SAM commands. Since the project has the option to output .wav files, there is no need for the -wav command.
+Remove the `sam` prefix from the commands and put the commands into a file with
+.sam at the end.
+
+Example 1:
+```
+I am sam
+```
+Example 2:
+```
+-sing I am sam
+```
+Example 3:
+```
+-sing -pitch 60 I am sam
+```
+Since the project has the option to output `.wav` files, there is no need for the `-wav` command.
 
 In case you don't read through the code to find out how to execute the commands, here is the original print message
 for using the code.
 ```
 usage: sam [options] Word1 Word2 ....
 options
--phonetic		enters phonetic mode. (see below)
--pitch number		set pitch value (default=64)
--speed number		set speed value (default=72)
--throat number		set throat value (default=128)
--mouth number		set mouth value (default=128)
--wav filename		output to wav instead of libsdl
--sing			special treatment of pitch
--debug			print additional debug messages
+-phonetic		    enters phonetic mode. (see below)
+-pitch number		    set pitch value (default=64)
+-speed number		    set speed value (default=72)
+-throat number		    set throat value (default=128)
+-mouth number		    set mouth value (default=128)
+-sing			    special treatment of pitch
+-debug			    print additional debug messages
 
     VOWELS                             VOICED CONSONANTS	
 IY           f(ee)t                    R        red		
