@@ -49,7 +49,7 @@ Example 4:
 -sing -pitch 1 I am sam
 ```
 Since the project has the option to output `.wav` files, there is no need for the `-wav` command.
-Note word lines should not exceed 150ish characters to due API limitations. With spaces, it is now ok.
+Note word lines should not exceed 99 characters to due API limitations. With spaces, it is now ok.
 Just redo the options and put more text on the next line.
 
 There is a known limitation for the length of the output. Try to keep outputs to less than 1 minute: 30 seconds.

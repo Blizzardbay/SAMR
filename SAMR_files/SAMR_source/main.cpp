@@ -354,7 +354,7 @@ int main(int argc, char** argv) {
 			std::wstring temp1 = samInput;
 			samInput.append(L" " + current);
 
-			if (samInput.size() >= 150) {
+			if (samInput.size() >= 99) {
 				if (DumpToMainBuffer(temp1, phonetic, false) == 1) {
 					std::cin.get();
 					EndSam();
@@ -362,27 +362,27 @@ int main(int argc, char** argv) {
 				}
 				samInput.erase(0, temp1.size() + 1);
 
-				while (samInput.size() >= 150) {
-					std::wstring temp2 = samInput.substr(0, 150);
+				while (samInput.size() >= 99) {
+					std::wstring temp2 = samInput.substr(0, 99);
 					if (DumpToMainBuffer(temp2, phonetic, false) == 1) {
 						std::cin.get();
 						EndSam();
 						return 1;
 					}
-					samInput.erase(0, 150);
+					samInput.erase(0, 99);
 				}
 			}
 		}
 	}
-	if (samInput.size() >= 150) {
-		while (samInput.size() >= 150) {
-			std::wstring temp2 = samInput.substr(0, 150);
+	if (samInput.size() >= 99) {
+		while (samInput.size() >= 99) {
+			std::wstring temp2 = samInput.substr(0, 99);
 			if (DumpToMainBuffer(temp2, phonetic, false) == 1) {
 				std::cin.get();
 				EndSam();
 				return 1;
 			}
-			samInput.erase(0, 150);
+			samInput.erase(0, 99);
 		}
 	}
 	else {
