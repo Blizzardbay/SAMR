@@ -93,7 +93,7 @@ void OutputSound(int volume) {
 	SDL_CloseAudio();
 }
 
-int DumpToMainBuffer(std::wstring samInput, int phonetic) {
+int DumpToMainBuffer(std::wstring samInput, int phonetic, bool reset = true) {
 	// All text must be upper case
 	for (size_t i = 0; i < samInput.size(); i++) {
 		samInput.at(i) = (unsigned char)toupper((int)samInput.at(i));
@@ -133,7 +133,9 @@ int DumpToMainBuffer(std::wstring samInput, int phonetic) {
 		for (size_t l = 0; l < GetBufferLength() / 50; l++) {
 			totalBuffer.push_back(GetBuffer()[l]);
 		}
-		ResetSam();
+		if (reset == true) {
+			ResetSam();
+		}
 		return 0;
 	}
 	return 1;
@@ -209,6 +211,8 @@ int main(int argc, char** argv) {
 			if (settingSettings == false && i != 0) {
 				if (DumpToMainBuffer(samInput, phonetic) == 1) {
 					phonetic = 0;
+					std::cin.get();
+					EndSam();
 					return 1;
 				}
 				samInput = std::wstring();
@@ -221,6 +225,8 @@ int main(int argc, char** argv) {
 			if (settingSettings == false && i != 0) {
 				if (DumpToMainBuffer(samInput, phonetic) == 1) {
 					phonetic = 0;
+					std::cin.get();
+					EndSam();
 					return 1;
 				}
 				samInput = std::wstring();
@@ -233,6 +239,8 @@ int main(int argc, char** argv) {
 			if (settingSettings == false && i != 0) {
 				if (DumpToMainBuffer(samInput, phonetic) == 1) {
 					phonetic = 0;
+					std::cin.get();
+					EndSam();
 					return 1;
 				}
 				samInput = std::wstring();
@@ -246,6 +254,8 @@ int main(int argc, char** argv) {
 				if (settingSettings == false && i != 0) {
 					if (DumpToMainBuffer(samInput, phonetic) == 1) {
 						phonetic = 0;
+						std::cin.get();
+						EndSam();
 						return 1;
 					}
 					samInput = std::wstring();
@@ -259,6 +269,7 @@ int main(int argc, char** argv) {
 				std::cerr << "Invalid setting. -pitch" << std::endl;
 				std::cin.get();
 				
+				EndSam();
 				return 1;
 			}
 		}
@@ -267,6 +278,8 @@ int main(int argc, char** argv) {
 				if (settingSettings == false && i != 0) {
 					if (DumpToMainBuffer(samInput, phonetic) == 1) {
 						phonetic = 0;
+						std::cin.get();
+						EndSam();
 						return 1;
 					}
 					samInput = std::wstring();
@@ -280,6 +293,7 @@ int main(int argc, char** argv) {
 				std::cerr << "Invalid setting. -speed" << std::endl;
 				std::cin.get();
 				
+				EndSam();
 				return 1;
 			}
 		}
@@ -288,6 +302,8 @@ int main(int argc, char** argv) {
 				if (settingSettings == false && i != 0) {
 					if (DumpToMainBuffer(samInput, phonetic) == 1) {
 						phonetic = 0;
+						std::cin.get();
+						EndSam();
 						return 1;
 					}
 					samInput = std::wstring();
@@ -301,6 +317,7 @@ int main(int argc, char** argv) {
 				std::cerr << "Invalid setting. -mouth" << std::endl;
 				std::cin.get();
 				
+				EndSam();
 				return 1;
 			}
 		}
@@ -309,7 +326,8 @@ int main(int argc, char** argv) {
 				if (settingSettings == false && i != 0) {
 					if (DumpToMainBuffer(samInput, phonetic) == 1) {
 						phonetic = 0;
-						
+						std::cin.get();
+						EndSam();
 						return 1;
 					}
 					samInput = std::wstring();
@@ -323,6 +341,7 @@ int main(int argc, char** argv) {
 				std::cerr << "Invalid setting. -throat" << std::endl;
 				std::cin.get();
 				
+				EndSam();
 				return 1;
 			}
 		}
@@ -332,28 +351,62 @@ int main(int argc, char** argv) {
 			samInput.append(current);
 		}
 		else {
+			std::wstring temp1 = samInput;
 			samInput.append(L" " + current);
+
+			if (samInput.size() >= 150) {
+				if (DumpToMainBuffer(temp1, phonetic, false) == 1) {
+					std::cin.get();
+					EndSam();
+					return 1;
+				}
+				samInput.erase(0, temp1.size() + 1);
+
+				while (samInput.size() >= 150) {
+					std::wstring temp2 = samInput.substr(0, 150);
+					if (DumpToMainBuffer(temp2, phonetic, false) == 1) {
+						std::cin.get();
+						EndSam();
+						return 1;
+					}
+					samInput.erase(0, 150);
+				}
+			}
 		}
 	}
-	if (DumpToMainBuffer(samInput, phonetic) == 1) {
-		return 1;
-	}
-	bool properInput1{ false };
-	do {
-		std::cout << "1 : Output To Wav." << std::endl;
-		std::cout << "2 : Output To Sound." << std::endl;
-		std::cout << "3 : Both." << std::endl;
-		int input1{ 0 };
-		std::string consoleInput1{};
-		std::getline(std::cin, consoleInput1);
-		
-		input1 = strtol(consoleInput1.c_str(), NULL, 10);
-
-		if (input1 == 0) {
-			continue;
+	if (samInput.size() >= 150) {
+		while (samInput.size() >= 150) {
+			std::wstring temp2 = samInput.substr(0, 150);
+			if (DumpToMainBuffer(temp2, phonetic, false) == 1) {
+				std::cin.get();
+				EndSam();
+				return 1;
+			}
+			samInput.erase(0, 150);
 		}
+	}
+	else {
+		if (DumpToMainBuffer(samInput, phonetic) == 1) {
+			std::cin.get();
+			EndSam();
+			return 1;
+		}
+		bool properInput1{ false };
+		do {
+			std::cout << "1 : Output To Wav." << std::endl;
+			std::cout << "2 : Output To Sound." << std::endl;
+			std::cout << "3 : Both." << std::endl;
+			int input1{ 0 };
+			std::string consoleInput1{};
+			std::getline(std::cin, consoleInput1);
 
-		switch (input1) {
+			input1 = strtol(consoleInput1.c_str(), NULL, 10);
+
+			if (input1 == 0) {
+				continue;
+			}
+
+			switch (input1) {
 			case 1: {
 				if (fileToOpen.lpstrFileTitle == NULL) {
 					size_t lastSlash1 = filePath.rfind(L'/');
@@ -381,11 +434,13 @@ int main(int argc, char** argv) {
 							return 0;
 						}
 						else {
+							std::cin.get();
 							EndSam();
 							return 1;
 						}
 					}
 					else {
+						std::cin.get();
 						EndSam();
 						return 1;
 					}
@@ -464,11 +519,13 @@ int main(int argc, char** argv) {
 							return 0;
 						}
 						else {
+							std::cin.get();
 							EndSam();
 							return 1;
 						}
 					}
 					else {
+						std::cin.get();
 						EndSam();
 						return 1;
 					}
@@ -478,6 +535,7 @@ int main(int argc, char** argv) {
 					size_t period{ fileName.find(L".", 0) };
 
 					if (period == std::wstring::npos) {
+						std::cin.get();
 						EndSam();
 						return 1;
 					}
@@ -501,8 +559,11 @@ int main(int argc, char** argv) {
 			default: {
 				continue;
 			}
-		}
-	} while (!properInput1);
+			}
+		} while (!properInput1);
+		EndSam();
+		return 0;
+	}
 	EndSam();
 	return 0;
 }
